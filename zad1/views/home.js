@@ -1,21 +1,16 @@
-function renderPage(fileName) {
+function renderPage(home) {
     return `
     <html lang="pl">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>${fileName}</title>
+        <title>home.js</title>
     </head>
     <body>
-        <div>${fileName}</div>
+        <div>home.js</div>
     </body>
     </html>
     `;
 }
-
-// Eksportowanie metody renderPage
-module.exports = {
-    renderPage
-};
 
 

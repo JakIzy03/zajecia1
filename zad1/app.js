@@ -1,33 +1,43 @@
-const express = require('express');
+const http = require('http');
 
-// Inicjowanie aplikacji Express
-const app = express();
-
-// Stała PORT ustawiona na wartość 3000
 const PORT = 3000;
 
-// Ustawianie middleware dla obsługi żądań typu GET na ścieżce '/'
-app.get('/', (req, res) => {
-    // Renderowanie strony home
-    const homePage = require('./views/home');
-    res.send(homePage.renderPage('Home'));
-});
-
-// Ustawianie middleware dla obsługi żądań typu GET na ścieżce '/student'
-app.get('/student', (req, res) => {
-    // Renderowanie strony student
-    const studentPage = require('./views/student');
-    res.send(studentPage.renderPage('Student'));
-});
-
-// Startowanie serwera nasłuchującego na określonym porcie
-const server = app.listen(PORT, () => {
+function requireListener(request, response){
     console.log(`Server is running on ${PORT}`);
-});
+}
 
-// Wyświetlanie komunikatu po uruchomieniu serwera
-server.on('listening', () => {
-    console.log(`Server is running on ${PORT}`);
+const server = http.createServer((request, response) => {
+if(url==="/"){
+    response.setHeader( 'Content-Type', 'text/html' );
+    response.write(`
+    <html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>home.js</title>
+    </head>
+    <body>
+        <div>home.js</div>
+    </body>
+    </html>
+    `);
+}
+
+if(url==="views/student"){
+    response.setHeader( 'Content-Type', 'text/html' );
+    response.write(`
+    <html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>student.js</title>
+    </head>
+    <body>
+        <div>student.js</div>
+    </body>
+    </html>
+    `);
+}
 });
 
 

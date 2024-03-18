@@ -1,4 +1,4 @@
-function renderPage() {
+function renderPage(student) {
     return `
     <html lang="pl">
     <head>
@@ -12,7 +12,3 @@ function renderPage() {
     </html>
     `;
 }
-
-module.exports = {
-    renderPage
-};
